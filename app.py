@@ -43,9 +43,10 @@ def input_data():
 
 st.cache(allow_output_mutation=True)
 
-def predict(region,age,sex,children,bmi,medical_problem,smoker):
+def preprocessing():
     
-    model = joblib.load('linear_model.pkl')
+    age,sex,bmi,children,smoker,medical_problem,region = input_data()
+
     
     data = np.zeros(len(columns))
     
@@ -63,9 +64,32 @@ def predict(region,age,sex,children,bmi,medical_problem,smoker):
     data[8] = np.where(medical_problem == 'severe',1,0)
     data[9] = np.where(smoker == 'smoker',1,0)
     
-    data = np.asarray([data])
+    return  np.asarray([data])
+
+
+
+st.cache(allow_output_mutation=True)
+
+def predict(new_data):
+    model = joblid.load('linear_model.pkl')
+    return  model.predict(new_data)
+
+
+
+st.cache(allow_output_mutation=True)
+
+def main():
     
+    st.subheader("User Input")
+    new_data =  preprocessing()
+    if st.button(label = 'Predict'):
+        
+        price=predict(new_data)
+        st.success(f'The estimated health insurance charge is: $ {charges} USD')
+        
+        
+if __name__ == "__main__":
     
-    return model.predict(data)
+    main()
 
 
