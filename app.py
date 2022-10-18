@@ -16,7 +16,7 @@ def json_file():
         
         features_names = json.loads(F.read())
       
-    return np.asarray(data_json['features'])
+    return np.array(features_names['features'])
 
 
 
