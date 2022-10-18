@@ -12,7 +12,7 @@ st.cache(allow_output_mutation=True)
 
 def json_file():
     
-    with open("faetures.json") as F:
+    with open("features.json") as F:
         
         features_names = json.loads(F.read())
       
