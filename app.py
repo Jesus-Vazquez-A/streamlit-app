@@ -63,11 +63,11 @@ def preprocessing():
         
         
     data[4] = age
-    data[5] = np.where(sex  == 'male',1,0)
+    data[5] = np.where(sex  == 'Male',1,0)
     data[6] = children
     data[7] = bmi
-    data[8] = np.where(medical_problem == 'severe',1,0)
-    data[9] = np.where(smoker == 'smoker',1,0)
+    data[8] = np.where(medical_problem == 'Severe',1,0)
+    data[9] = np.where(smoker == 'Yes',1,0)
     
     return  np.asarray([data])
 
