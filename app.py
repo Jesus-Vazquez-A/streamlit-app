@@ -15,9 +15,8 @@ def json_file():
     with open("faetures.json") as F:
         
         features_names = json.loads(F.read())
-        features_names = np.asarray(data_json['features'])
-
-    return features_names
+      
+    return np.asarray(data_json['features'])
 
 
 
@@ -51,7 +50,7 @@ def preprocessing():
     
     age,sex,bmi,children,smoker,medical_problem,region = input_data()
 
-    
+    columns = json_file()
     data = np.zeros(len(columns))
     
     region_idx = np.where(region == columns)[0][0]
