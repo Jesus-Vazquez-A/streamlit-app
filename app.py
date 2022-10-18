@@ -3,6 +3,10 @@ import joblib
 import streamlit as st
 
 
+st.write(""" # Predicted Insurence Price """)
+
+st.image("""bg-insurance.jpg""")
+
 
 st.cache(allow_output_mutation=True)
 
