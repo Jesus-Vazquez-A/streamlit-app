@@ -11,13 +11,13 @@ st.image("""bg-insurance.jpg""")
 
 st.cache(allow_output_mutation=True)
 
-def json_file():
+#def json_file():
     
-    with open("features.json") as F:
+#    with open("features.json") as F:
         
-        features_names = json.loads(F.read())
+#        features_names = json.loads(F.read())
       
-    return np.array(features_names['features'])
+#    return np.array(features_names['features'])
 
 
 
