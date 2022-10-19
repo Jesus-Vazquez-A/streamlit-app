@@ -9,16 +9,6 @@ st.write(""" # Predicted Insurence Price """)
 st.image("""bg-insurance.jpg""")
 
 
-st.cache(allow_output_mutation=True)
-
-def json_file():
-        
-    with open("features.json") as F:
-               
-       features_names = json.loads(F.read())
-      
-    return np.array(features_names['features'])
-
 
 
 st.cache(allow_output_mutation=True)
@@ -45,56 +35,5 @@ def input_data():
 
 
 
-st.cache(allow_output_mutation=True)
-
-def preprocessing():
-    
-     region,age,sex,children,bmi,medical_problem,smoker = input_data()
-
-     columns = json_file()
-     data = np.zeros(len(columns))
-    
-     region_idx = np.where(region == columns)[0][0]
-    
-    
-    if region_idx >= 0:
-        
-        data[region_idx] = 1
-        
-        
-    data[4] = age
-    data[5] = np.where(sex  == 'Male',1,0)
-    data[6] = children
-    data[7] = bmi
-    data[8] = np.where(medical_problem == 'Severe',1,0)
-    data[9] = np.where(smoker == 'Yes',1,0)
-    
-    return  np.asarray([data])
-
-
-
-st.cache(allow_output_mutation=True)
-
-def predict(new_data):
-    model = joblid.load('linear_model.pkl')
-    return  model.predict(new_data)
-
-
-
-st.cache(allow_output_mutation=True)
-
-def main():
-    
-    st.subheader("User Input")
-    new_data =  preprocessing()
-    if st.button(label = 'Predict'):
-        
-        charges = predict(new_data)
-        st.success(f'The estimated health insurance charge is: $ {charges} USD')
-        
-        
-if __name__ == "__main__":
-    
-    main()
 
 
