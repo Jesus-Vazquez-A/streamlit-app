@@ -40,8 +40,6 @@ def input_data():
 
 
 
-
-
 def main():
     
     st.write(""" # Predicted Insurence Price """)
