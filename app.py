@@ -87,7 +87,7 @@ def main():
     
     if st.button(label = 'Predict'):
         
-        # charges_pred =predict(new_data)
+        charges_pred =predict(new_data)
         
         st.success(f'The estimated health insurance charge is: $ {new_data} USD')
 
