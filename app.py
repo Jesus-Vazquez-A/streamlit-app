@@ -4,9 +4,7 @@ import joblib
 import json
 
 
-st.write(""" # Predicted Insurence Price """)
 
-st.image("""bg-insurance.jpg""")
 
 def json_file():
     
@@ -44,7 +42,26 @@ def input_data():
 
 
 
+def main():
+    
+    st.write(""" # Predicted Insurence Price """)
 
+    st.image("""bg-insurance.jpg""")
+  
+  #  new_data = preprocess()
+    
+    data = data_json()
+    
+    if st.button(label = 'Predict'):
+        
+      #  price=predict(new_data)
+        st.success(f'The estimated price of the vehicle is: $ {data} £')
+
+
+st.cache(allow_output_mutation=True)
+
+if __name__ == '__main__':
+    main()
 
 
 
