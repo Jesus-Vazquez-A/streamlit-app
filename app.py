@@ -50,7 +50,7 @@ def main():
   
   #  new_data = preprocess()
     
-    data = data_json()
+    data = json_file()
     
     if st.button(label = 'Predict'):
         
