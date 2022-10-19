@@ -89,7 +89,7 @@ def main():
         
         charges_pred =predict(new_data)
         
-        st.success(f'The estimated health insurance charge is: $ {new_data} USD')
+        st.success(f'The estimated health insurance charge is: $ {charges_pred} USD')
 
 
 st.cache(allow_output_mutation=True)
