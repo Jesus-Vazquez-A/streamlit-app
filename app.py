@@ -57,8 +57,8 @@ def preprocessing():
   #  region_idx = np.where(region == columns)[0][0]
     
     
-    if region_idx >= 0:
-        data[region_idx] = 1
+ #   if region_idx >= 0:
+   #     data[region_idx] = 1
         
         
     data[4] = age
