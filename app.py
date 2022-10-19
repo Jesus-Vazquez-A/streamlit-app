@@ -28,7 +28,7 @@ def input_data():
     
     medical_problem=st.selectbox("Medical Problem",("Light","Severe")),
     
-    smoker=st.selectbox("Smoker",("No","Yes"))
+    smoker=st.selectbox("Smoker",("No","Yes")),
     
     
   #  return region,age,sex,children,bmi,medical_problem,smoker
