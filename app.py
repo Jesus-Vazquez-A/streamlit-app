@@ -51,10 +51,10 @@ def preprocessing():
     
      region,age,sex,children,bmi,medical_problem,smoker = input_data()
 
-    columns = json_file()
-    data = np.zeros(len(columns))
+   # columns = json_file()
+  #  data = np.zeros(len(columns))
     
-    region_idx = np.where(region == columns)[0][0]
+  #  region_idx = np.where(region == columns)[0][0]
     
     
     if region_idx >= 0:
