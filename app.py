@@ -50,7 +50,7 @@ st.cache(allow_output_mutation=True)
 
 def preprocessing():
     
-    age,sex,bmi,children,smoker,medical_problem,region = input_data()
+     region,age,sex,children,bmi,medical_problem,smoker = input_data()
 
     columns = json_file()
     data = np.zeros(len(columns))
