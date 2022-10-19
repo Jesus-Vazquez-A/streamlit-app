@@ -31,7 +31,7 @@ def input_data():
     smoker=st.selectbox("Smoker",("No","Yes"))
     
     
-    return region,age,sex,children,bmi,medical_problem,smoker
+  #  return region,age,sex,children,bmi,medical_problem,smoker
 
 
 
