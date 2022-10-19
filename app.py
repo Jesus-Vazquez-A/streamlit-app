@@ -8,7 +8,14 @@ st.write(""" # Predicted Insurence Price """)
 
 st.image("""bg-insurance.jpg""")
 
+def json_file():
+    
+    with open("features.json") as columns:
+        
+        data_json = json.loads(columns.read())
+        data_json = np.asarray(data_json['features'])
 
+    return data_json
 
 
 st.cache(allow_output_mutation=True)
@@ -28,10 +35,14 @@ def input_data():
     
     medical_problem=st.selectbox("Medical Problem",("Light","Severe")),
     
-    smoker=st.selectbox("Smoker",("No","Yes")),
+    smoker=st.selectbox("Smoker",("No","Yes"))
     
     
-  #  return region,age,sex,children,bmi,medical_problem,smoker
+    return region,age,sex,children,bmi,medical_problem,smoker
+
+
+
+
 
 
 
