@@ -40,26 +40,60 @@ def input_data():
 
 
 
+
+def preprocessing():
+    
+    region,age,sex,children,bmi,medical_problem,smoker = input_data()
+    
+    columns = json_file()
+    
+    new_data = np.zeros(len(columns))
+    
+    region_idx = np.where(region == columns)[0][0]
+    
+    
+    if region_idx >= 0:
+        new_data[region_idx] = 1
+        
+        
+    new_data[4] = age
+    new_data[5] = np.where(sex  == 'male',1,0)
+    new_data[6] = children
+    new_data[7] = bmi
+    new_data[8] = np.where(medical_problem == 'severe',1,0)
+    new_data[9] = np.where(smoker == 'smoker',1,0)
+    
+    
+    
+    return np.asarray([new_data])
+
+
+def predict(new_data):
+    
+    model = joblib.load('linear_model.pkl')
+    
+    return model.predict(new_data)
+
+
+
 def main():
     
     st.write(""" # Predicted Insurence Price """)
 
     st.image("""bg-insurance.jpg""")
   
-  #  new_data = preprocess()
+    new_data = preprocessing()
     
-    data = json_file()
     
     if st.button(label = 'Predict'):
         
-      #  price=predict(new_data)
-        st.success(f'The estimated price of the vehicle is: $ {data} £')
+        charges_pred =predict(new_data)
+        
+        st.success(f'The estimated health insurance charge is: $ {charges} USD')
 
 
 st.cache(allow_output_mutation=True)
 
+
 if __name__ == '__main__':
     main()
-
-
-
