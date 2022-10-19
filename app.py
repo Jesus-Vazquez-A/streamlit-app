@@ -11,13 +11,13 @@ st.image("""bg-insurance.jpg""")
 
 st.cache(allow_output_mutation=True)
 
-#def json_file():
-    
-#    with open("features.json") as F:
+def json_file():
         
-#        features_names = json.loads(F.read())
+    with open("features.json") as F:
+               
+       features_names = json.loads(F.read())
       
-#    return np.array(features_names['features'])
+    return np.array(features_names['features'])
 
 
 
@@ -51,14 +51,15 @@ def preprocessing():
     
      region,age,sex,children,bmi,medical_problem,smoker = input_data()
 
-   # columns = json_file()
-  #  data = np.zeros(len(columns))
+     columns = json_file()
+     data = np.zeros(len(columns))
     
-  #  region_idx = np.where(region == columns)[0][0]
+     region_idx = np.where(region == columns)[0][0]
     
     
- #   if region_idx >= 0:
-   #     data[region_idx] = 1
+    if region_idx >= 0:
+        
+        data[region_idx] = 1
         
         
     data[4] = age
