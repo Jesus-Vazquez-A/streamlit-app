@@ -21,7 +21,7 @@ st.cache(allow_output_mutation=True)
 
 def input_data():
     
-    region=st.radio("Region",('Southeast', 'Northeast', 'Southwest', 'Northwest'))
+    region=st.radio("Region",('Southeast', 'Northeast', 'Southwest', 'Northwest')),
     
     age=st.slider(label="Age",min_value=18,max_value=64,step=1),
     
